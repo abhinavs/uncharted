@@ -8,14 +8,14 @@
 
     <title id="barChartTitle">Bar chart visualizing <%= Chart.title(@chart) %></title>
 
-    <%= render "_color_defs.html", chart: @chart %>
-    <%= render "_bar_labels.html", chart: @chart %>
-    <%= render "_bar_grid_line_labels.html", chart: @chart, grid_lines: @grid_lines, offsetter: @offsetter %>
+    <.color_defs chart={@chart} />
+    <.bar_labels chart={@chart} />
+    <.bar_grid_line_labels chart={@chart} grid_lines={@grid_lines} offsetter={@offsetter} />
     <svg class="" width="90%" height="92%" x="10%" y="0">
       <%= if @chart.dataset.axes.show_gridlines do %>
-        <%= render "_bar_grid_lines.html", chart: @chart, grid_lines: @grid_lines, offsetter: @offsetter, axis: @axis %>
+        <.bar_grid_lines chart={@chart} grid_lines={@grid_lines} offsetter={@offsetter} axis={@axis} /> 
       <% end %>
-      <%= render "_bars.html", chart: @chart, bars: @bars %>
+      <.bars chart={@chart} bards={@bars} /> 
     </svg>
   </svg>
 </figure>

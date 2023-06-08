@@ -2,14 +2,14 @@
   <svg id="<%= svg_id(@chart, "chart") %>" class="scatter-chart" width="100%" height="100%" viewBox="0 0 <%= "#{@width} #{@height}" %>" style="overflow: visible;">
     <title id="ScatterPlotTitle">Scatter plot visualizing <%= Chart.title(@chart) %></title>
 
-    <%= render "_y_axis.html", chart: @chart, grid_lines: @y_grid_lines, offsetter: @y_grid_line_offsetter %>
-    <%= render "_bar_grid_line_labels.html", chart: @chart, grid_lines: @x_grid_lines, offsetter: @x_grid_line_offsetter %>
+    <.y_axis chart={@chart} grid_lines={@y_grid_lines} offsetter={@y_grid_line_offsetter} />
+    <.bar_grid_line_labels chart={@chart} grid_lines={@x_grid_lines} offsetter={@x_grid_line_offsetter} />
 
     <svg id="<%= svg_id(@chart, "graph") %>" class="chart-lines" width="90%" height="92%" x="10%" y="0" style="overflow: visible;">
       <g>
         <%= if @show_gridlines do %>
-          <%= render "_bar_grid_lines.html", chart: @chart, grid_lines: @y_grid_lines, offsetter: @y_grid_line_offsetter, axis: @y_axis %>
-          <%= render "_chart_lines.html", chart: @chart, grid_lines: @x_grid_lines, offsetter: @x_grid_line_offsetter, axis: @x_axis %>
+          <.bar_grid_lines chart={@chart} grid_lines={@y_grid_lines} offsetter={@y_grid_line_offsetter} axis={@y_axis} />
+          <.chart_lines grid_lines={@x_grid_lines} offsetter={@x_grid_line_offsetter} axis={@x_axis} />
         <% end %>
       </g>
 
@@ -31,7 +31,7 @@
         </g>
       </svg>
 
-      <%= render "_color_defs.html", chart: @chart %>
+      <.color_defs chart={@chart} />
 
     </svg>
 </figure>

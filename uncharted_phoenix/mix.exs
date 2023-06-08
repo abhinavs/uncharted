@@ -1,7 +1,7 @@
 defmodule UnchartedPhoenix.MixProject do
   use Mix.Project
 
-  @github_organization "unchartedelixir"
+  @github_organization "abhinavs"
   @app :uncharted_phoenix
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
@@ -66,7 +66,7 @@ defmodule UnchartedPhoenix.MixProject do
       {:excoveralls, "~> 0.14", only: :test},
       {:jason, "~> 1.2"},
       {:uncharted, path: "../uncharted"},
-      {:phoenix_live_view, ">= 0.15.0"}
+      {:phoenix_live_view, ">= 0.18.16"}
     ]
   end
 
