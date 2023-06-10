@@ -3,8 +3,8 @@ defmodule UnchartedPhoenix do
   import Phoenix.LiveView.Helpers
   @moduledoc false
 
-  def render(socket, chart) do
-    live_component(socket, Component.for_dataset(chart),
+  def render(_socket, chart) do
+    live_component(Component.for_dataset(chart),
       chart: chart,
       always_show_table: chart.show_table,
       id: Component.id(chart)

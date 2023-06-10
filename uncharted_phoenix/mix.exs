@@ -15,9 +15,9 @@ defmodule UnchartedPhoenix.MixProject do
       description: description(),
       package: package(),
       docs: docs(),
-      elixir: "~> 1.7",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix] ++ Mix.compilers(),
+      #compilers: [:phoenix] ++ Mix.compilers(),
       dialyzer: [
         plt_add_apps: ~w(ex_unit mix)a,
         plt_add_deps: :app_tree,
