@@ -15,6 +15,7 @@ defmodule Uncharted.MixProject do
       description: description(),
       package: package(),
       docs: docs(),
+      config_path: "config/config.exs",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),

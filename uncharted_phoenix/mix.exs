@@ -16,6 +16,7 @@ defmodule UnchartedPhoenix.MixProject do
       package: package(),
       docs: docs(),
       elixir: "~> 1.14",
+      config_path: "config/config.exs",
       elixirc_paths: elixirc_paths(Mix.env()),
       #compilers: [:phoenix] ++ Mix.compilers(),
       dialyzer: [

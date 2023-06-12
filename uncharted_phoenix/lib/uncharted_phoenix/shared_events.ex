@@ -3,6 +3,8 @@ defmodule UnchartedPhoenix.SharedEvents do
 
   defmacro __using__(_) do
     quote do
+      use Phoenix.LiveView
+
       def mount(socket) do
         {:ok, assign(socket, :show_table, false)}
       end
@@ -15,13 +17,13 @@ defmodule UnchartedPhoenix.SharedEvents do
         {:noreply, assign(socket, :show_table, false)}
       end
 
-      def render(%{chart: %{dataset: dataset}} = assigns) do
-        Phoenix.View.render(
-          UnchartedPhoenix.ComponentView,
-          "live#{chart_name(dataset)}.html",
-          assigns
-        )
-      end
+      # def render(%{chart: %{dataset: dataset}} = assigns) do
+      #   Phoenix.LiveView.render(
+      #     UnchartedPhoenix.ComponentView,
+      #     "live#{chart_name(dataset)}.html",
+      #     assigns
+      #   )
+      # end
 
       defp chart_name(dataset) do
         Atom.to_string(dataset.__struct__)
