@@ -5,6 +5,10 @@ defmodule UnchartedPhoenix.LiveScatterComponent do
 
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.ProgressChart
+  alias Uncharted.Chart
+  alias Uncharted.ScatterPlot.Point, as: ScatterPoint
 
   def update(assigns, socket) do
     x_axis = assigns.chart.dataset.axes.x

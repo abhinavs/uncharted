@@ -5,6 +5,8 @@ defmodule UnchartedPhoenix.LivePieComponent do
 
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.Chart
 
   def update(assigns, socket) do
     socket =

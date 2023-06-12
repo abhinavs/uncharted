@@ -3,9 +3,11 @@ defmodule UnchartedPhoenix.LiveProgressComponent do
   Bar Progress Component
   """
 
-  alias Uncharted.ProgressChart
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.Chart
+  alias Uncharted.ProgressChart
 
   def update(assigns, socket) do
     socket =

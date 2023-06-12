@@ -5,6 +5,9 @@ defmodule UnchartedPhoenix.LiveLineComponent do
 
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.Chart
+  alias Uncharted.LineChart.{Line, Point}
 
   def update(assigns, socket) do
     x_axis = assigns.chart.dataset.axes.x

@@ -5,6 +5,11 @@ defmodule UnchartedPhoenix.LiveBarComponent do
 
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.Chart
+  alias UnchartedPhoenix.Components.BarGridLineLabels
+  alias UnchartedPhoenix.Components.BarGridLines
+  alias UnchartedPhoenix.Components.BarGridLabels
 
   def update(assigns, socket) do
     x_axis = assigns.chart.dataset.axes.magnitude_axis

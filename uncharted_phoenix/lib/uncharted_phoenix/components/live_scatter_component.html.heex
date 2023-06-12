@@ -1,11 +1,11 @@
-<figure data-testid="lc-live-scatter-component" role="img" aria-label="Scatter plot visualizing <%= Chart.title(@chart) %>" alt="Scatter plot visualizing <%= Chart.title(@chart) %>" tabindex="0"  phx-target="<%= @myself %>" phx-focus="show_table">
-  <svg id="<%= svg_id(@chart, "chart") %>" class="scatter-chart" width="100%" height="100%" viewBox="0 0 <%= "#{@width} #{@height}" %>" style="overflow: visible;">
+<figure data-testid="lc-live-scatter-component" role="img" aria-label={"Scatter plot visualizing #{Chart.title(@chart)}"} alt={"Scatter plot visualizing #{Chart.title(@chart)}"} tabindex="0"  phx-target={@myself} phx-focus="show_table">
+  <svg id={svg_id(@chart, "chart")} class="scatter-chart" width="100%" height="100%" viewBox={"0 0 #{@width} #{@height}"} style="overflow: visible;">
     <title id="ScatterPlotTitle">Scatter plot visualizing <%= Chart.title(@chart) %></title>
 
     <.y_axis chart={@chart} grid_lines={@y_grid_lines} offsetter={@y_grid_line_offsetter} />
     <.bar_grid_line_labels chart={@chart} grid_lines={@x_grid_lines} offsetter={@x_grid_line_offsetter} />
 
-    <svg id="<%= svg_id(@chart, "graph") %>" class="chart-lines" width="90%" height="92%" x="10%" y="0" style="overflow: visible;">
+    <svg id={svg_id(@chart, "graph")} class="chart-lines" width="90%" height="92%" x="10%" y="0" style="overflow: visible;">
       <g>
         <%= if @show_gridlines do %>
           <.bar_grid_lines chart={@chart} grid_lines={@y_grid_lines} offsetter={@y_grid_line_offsetter} axis={@y_axis} />
@@ -13,19 +13,19 @@
         <% end %>
       </g>
 
-      <svg id="<%= svg_id(@chart, "results") %>" class="line__results" width="100%" height="100%" x="0%" y="0%" style="overflow: visible;">
+      <svg id={svg_id(@chart, "results")} class="line__results" width="100%" height="100%" x="0%" y="0%" style="overflow: visible;">
         <svg width='100%' height='100%' viewBox="0 0 1000 1000" preserveAspectRatio="none">
 
         </svg>
-        <g id="<%= svg_id(@chart, "dots") %>" class="line_dots">
-          <%= for %ScatterPoint{radius: radius, x_offset: x_offset, y_offset: y_offset, fill_color: fill_color, fill_opacity: fill_opacity} <- @points do %>
+        <g id={svg_id(@chart, "dots")} class="line_dots">
+          <%= for (%ScatterPoint{radius: radius, x_offset: x_offset, y_offset: y_offset, fill_color: fill_color, fill_opacity: fill_opacity} <- @points) do %>
             <circle
-              fill="<%= color_to_fill(@chart.colors(), fill_color) %>"
-              fill-opacity="<%= fill_opacity %>"
-              cx="<%= x_offset %>%"
-              cy="<%= 100 - y_offset %>%"
-              r="<%= radius %>">
-              <animate attributeName="cx" values="0;<%= x_offset %>" dur="0.5s" repeatCount="freeze" />
+              fill={color_to_fill(@chart.colors(), fill_color)}
+              fill-opacity={fill_opacity}
+              cx={"#{x_offset}%"}
+              cy={"#{100 - y_offset}%"}
+              r={radius}>
+              <animate attributeName="cx" values={"0;#{x_offset}"} dur="0.5s" repeatCount="freeze" />
             </circle>
           <% end %>
         </g>
@@ -34,9 +34,10 @@
       <.color_defs chart={@chart} />
 
     </svg>
+  </svg>
 </figure>
 
-<%= tag :table, [tabindex: "0", phx_target: @myself, phx_blur: "hide_table"] ++ maybe_show_table(@always_show_table || @show_table) %>
+<%= Phoenix.HTML.tag :table, [tabindex: "0", phx_target: @myself, phx_blur: "hide_table"] ++ maybe_show_table(@always_show_table || @show_table) do %>
   <caption><%= Chart.title(@chart) %></caption>
   <thead>
     <tr>
@@ -52,4 +53,4 @@
       <td><%= point.y_value %></td>
     </tr>
   <% end %>
-</table>
+<% end %>

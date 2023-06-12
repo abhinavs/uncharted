@@ -21,4 +21,5 @@ defmodule UnchartedPhoenix.Components.BarGridLines do
     <% end %>
     """
   end
+
 end

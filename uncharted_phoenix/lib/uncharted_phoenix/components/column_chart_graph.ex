@@ -3,7 +3,7 @@ defmodule UnchartedPhoenix.Components.ColumnChartGraph do
   import UnchartedPhoenix.Components.ComponentHelpers
   alias Uncharted.ColumnChart.{ColumnSection, Column}
 
-  def column_chart_grap(assigns) do
+  def column_chart_graph(assigns) do
     ~H"""
     <svg id={svg_id(@chart, "results")} class="chart-results" width="100%" height="96%" x="0%" y="2%">
       <g>

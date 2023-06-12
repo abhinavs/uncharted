@@ -5,6 +5,8 @@ defmodule UnchartedPhoenix.LiveColumnComponent do
 
   use Phoenix.LiveComponent
   use UnchartedPhoenix.SharedEvents
+  import UnchartedPhoenix.Components.ComponentHelpers
+  alias Uncharted.Chart
 
   def update(assigns, socket) do
     y_axis = assigns.chart.dataset.axes.magnitude_axis

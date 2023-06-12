@@ -2,7 +2,7 @@ defmodule UnchartedPhoenix.Components.BarLabels do
   use Phoenix.Component
   import UnchartedPhoenix.Components.ComponentHelpers
 
-  def bar_grid_lines(assigns) do
+  def bar_labels(assigns) do
     ~H"""
     <svg id={svg_id(@chart, "ylabels")} class="chart-y-labels" width="10%" height="92%" y="0" x="0"  overflow="visible">
       <%= for %Uncharted.BarChart.Bar{label: label, bar_offset: bar_offset, bar_height: bar_height} <- Uncharted.BarChart.bars(@chart) do %>
